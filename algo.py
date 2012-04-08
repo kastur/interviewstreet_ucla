@@ -38,6 +38,9 @@ def generate(url):
 
 	print '>> returning image'
 	gen_image = open('gen-%s.jpg' % u, 'rb').read();
+
+	cmd = ['rm', 'gen-%s.jpg' % u]
+  
 	return gen_image;
 
 

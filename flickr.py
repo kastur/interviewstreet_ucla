@@ -15,12 +15,13 @@ def get_pic(url):
   repl_str = fp.read()
   repl_json = json.loads(repl_str)
 
-  largest_image = repl_json['sizes']['size'][-1]['source']
+  for largest_image in repl_json['sizes']['size']:
+    print largest_image
+    dim = min([largest_image['width'], largest_image['height']])
+    if dim > 500:
+      break;
 
-  repl_json['sizes']['size'][-1]['source']
-
-
-  fp = urllib.urlopen(largest_image);
+  fp = urllib.urlopen(largest_image['source']);
   
   image_data = fp.read()
 
